@@ -17,7 +17,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let locale = Locale.current
+        let currencySymbol = locale.currencySymbol!
+        billField.placeholder = currencySymbol + "0.00"
+        tipLabel.text = currencySymbol + "0.00"
+        totalLabel.text = currencySymbol + "0.00"
     }
     @IBAction func onTap(_ sender: Any) {
         print("Hello")
@@ -34,10 +38,13 @@ class ViewController: UIViewController {
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         
         let total = bill + tip
+        let locale = Locale.current
+        let currencySymbol = locale.currencySymbol!
         
+        print(currencySymbol)
         
-        tipLabel.text = String(format: "$%.2f", tip)
-        totalLabel.text = String(format: "$%.2f", total)
+        tipLabel.text = String(format: currencySymbol + "%.2f", tip)
+        totalLabel.text = String(format: currencySymbol + "%.2f", total)
     }
     
 }
