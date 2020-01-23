@@ -22,6 +22,8 @@ class ViewController: UIViewController {
         billField.placeholder = currencySymbol + "0.00"
         tipLabel.text = currencySymbol + "0.00"
         totalLabel.text = currencySymbol + "0.00"
+        
+        billField.becomeFirstResponder()
     }
     @IBAction func onTap(_ sender: Any) {
         print("Hello")
